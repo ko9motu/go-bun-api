@@ -1,0 +1,25 @@
+version: "3"
+services:
+  # appコンテナ追加
+  # app:
+  db:
+    container_name: postgres
+    build: docker/db
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "test_db"
+    networks:
+      - app_net
+
+volumes:
+  db_data:
+
+networks:
+  app_net:
+    driver: bridge
