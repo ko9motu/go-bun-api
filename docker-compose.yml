@@ -10,8 +10,9 @@ services:
     networks:
       - app_network
     volumes:
-      - ./:/frontend
-    command: sh -c 'cd /frontend && npm start'
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    command: sh -c 'cd /app && npm start'
     depends_on:
       - api
   api:

@@ -1,6 +1,6 @@
 FROM node:23.1-bullseye
 
-WORKDIR /
+WORKDIR /app
 
 COPY package*.json ./
 
